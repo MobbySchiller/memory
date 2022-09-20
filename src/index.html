@@ -3,10 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no, maximum-scale = 1, minimum-scale = 1">
+    <title>Memory</title>
 </head>
 <body>
-    
+
+    <div class="game">
+        <div class="game__border">
+        <div class="game__container">
+            <div class="menu game__layer game__layer--front" id="js-game-layer-front">
+                <h1>MEMORY</h1>
+                <div class="menu__difficulty">
+                <h2>Difficulty level</h2>
+                <div class="menu__levels">
+                    <button class="menu__level-button" data-level="easy">Easy</button>
+                    <button class="menu__level-button" data-level="medium">Medium</button>
+                    <button class="menu__level-button" data-level="hard">Hard</button>
+                </div>
+                </div>
+                <button class="menu__start-button" id="js-start-button">Start Game</button>
+            </div>
+            <div class="table game__layer game__layer--back" id="js-game-layer-back">
+                <div class="board" id="js-board"></div>
+                <div class="results">
+                    <div class="timer">
+                        <span class="timer__minutes" id="js-minutes">00</span>:<span class="timer__seconds" id="js-seconds">00</span>
+                    </div>
+                    <div class="guessed">
+                        <p class="guessed__name">Guessed: <span class="guessed__count" id="js-score">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
 </html>

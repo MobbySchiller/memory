@@ -1,32 +1,52 @@
-const WINDOW_WIDTH = 640;
-const WINDOW_HEIGHT = 480;
-const SCALE_PROPERTY = '--scale';
-const START_BUTTON_ID = 'js-start-button';
-export const GAME_LAYER_FRONT_ID = 'js-game-layer-front';
-export const GAME_LAYER_BACK_ID = 'js-game-layer-back';
+import { board } from './Board.js';
+import { game } from './Game.js';
+import { timer } from './Timer.js';
 
+const START_BUTTON_ID = 'js-start-button';
+const LEVEL_BUTTONS_CLASS = '.menu__level-button';
+const GAME_LAYER_FRONT_ID = 'js-game-layer-front';
+const GAME_LAYER_BACK_ID = 'js-game-layer-back';
 
 class Menu {
     constructor() {
         this.startButton = document.getElementById(START_BUTTON_ID);
+        this.levelButtons = [...document.querySelectorAll(LEVEL_BUTTONS_CLASS)];
         this.gameLayerFront = document.getElementById('js-game-layer-front');
         this.gameLayerBack = document.getElementById('js-game-layer-back');
-        this.resizeWindow();
-        window.addEventListener('resize', this.resizeWindow);
-        this.startButton.addEventListener('click', () => this.rotateGameLayer());
     }
 
-    resizeWindow() {
-        const { innerWidth: width, innerHeight: height } = window;
-        const scale = Math.min(width / WINDOW_WIDTH, height / WINDOW_HEIGHT);
+    init() {
+        this.startButton.addEventListener('click', () => this.startGame(this.pickedLevel));
+        this.levelButtons.forEach(button => button.addEventListener('click', (e) => this.pickLevel(e)));
+    }
 
-        document.documentElement.style.setProperty(SCALE_PROPERTY, scale);
+    startGame(level) {
+        const levelProperties = game.levels[level];
+        console.log
+        if (level) {
+            this.rotateGameLayer();
+            game.drawCountries(levelProperties.pairs);
+            board.generateBoard(levelProperties, game.drawedCountries);
+        }
+        timer.run();
     }
 
     rotateGameLayer() {
         this.gameLayerFront.classList.add('rotate');
         this.gameLayerBack.classList.add('rotate');
     }
+
+    pickLevel(e) {
+        const clickedButton = e.target;
+        this.pickedLevel = clickedButton.dataset.level;
+        this.resetMark();
+        clickedButton.classList.add('menu__level-button--clicked');
+    }
+
+    resetMark() {
+        this.levelButtons.forEach(button => button.classList.remove('menu__level-button--clicked'));
+    }
+
 }
 
-const menu = new Menu();
+export const menu = new Menu();

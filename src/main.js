@@ -1,2 +1,2 @@
 import './sass/style.scss';
-import './scripts/Menu.js';
+import './scripts/Game.js';

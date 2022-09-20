@@ -16,6 +16,9 @@
         margin: $margin-spacing;
         font-size: 2rem;
 
+        &--clicked {
+            border-color: red;
+        }
     }
 
     &__start-button {

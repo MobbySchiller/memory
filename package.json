@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.config.dev.js",
     "dev": "webpack --config config/webpack.config.dev.js",
-    "prod": "webpack --config config/webpack.config.prod.js"
+    "prod": "webpack --config config/webpack.config.prod.js",
+    "mobile": "webpack-dev-server --config config/webpack.config.dev.js --host 0.0.0.0"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "json-loader": "^0.5.7",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
     "sass": "^1.54.8",

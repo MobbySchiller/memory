@@ -7,7 +7,6 @@
     <title>Memory</title>
 </head>
 <body>
-
     <div class="game">
         <div class="game__border">
         <div class="game__container">
@@ -29,10 +28,22 @@
                     <div class="timer">
                         <span class="timer__minutes" id="js-minutes">00</span>:<span class="timer__seconds" id="js-seconds">00</span>
                     </div>
+                    <div class="moves">
+                        <p class="moves__name">Moves: <span class="moves__count" id="js-moves">0</span></p>
+                    </div>
                     <div class="guessed">
                         <p class="guessed__name">Guessed: <span class="guessed__count" id="js-score">0</span></p>
                     </div>
                 </div>
+                <div class="modal" id="js-modal">
+                    <h2>Congratulations!</h2>
+                    <p class="modal__text">You guessed all the cards in <span class="modal__text-result" id="js-result-info"></span></p>
+                    <div class="modal__buttons">
+                        <button class="modal__play-again-btn" id="js-play-again-button">Play Again</button>
+                    <button class="modal__menu" id="js-menu-button">Menu</button>
+                    </div>
+                </div>
+                <div class="shadow" id="js-shadow"></div>
             </div>
         </div>
     </div>

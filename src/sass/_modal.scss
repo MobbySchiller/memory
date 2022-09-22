@@ -1,0 +1,44 @@
+.modal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    border-radius: $border-radius;
+    box-shadow: inset 0 0 4px black;
+    background-color: #fff;
+    z-index: 2;
+
+    &--active {
+        display: flex;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.shadow {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.75;
+
+    &--active {
+        display: block;
+    }
+}

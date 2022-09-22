@@ -10,7 +10,7 @@ module.exports = {
         script: './src/main.js',
     },
     output: {
-        filename: '[name]-[contenthash:4].js',
+        filename: '[name].[contenthash:4].js',
         path: path.resolve(__dirname, '../', 'build'),
         assetModuleFilename: 'assets/[name][ext][query]'
     },
@@ -31,7 +31,7 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
-                test: /\.(jpg|png|svg|gif|jpeg)$/,
+                test: /\.(jpg|png|svg|gif|jpeg|mp3)$/,
                 type: 'asset/resource'
             },
             {
@@ -53,17 +53,17 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
-            filename: '[name]-[contenthash:4].html',
+            filename: 'index.html',
             minify: {
                 collapseWhitespace: true,
             }
         }),
         new MiniCssExtractPlugin({
-            filename: 'style-[contenthash:4].css',
+            filename: 'style.[contenthash:4].css',
         }),
         new CopyPlugin({
             patterns: [
-                { from: 'public/assets', to: 'assets' },
+                { from: 'public/pictures', to: 'assets' },
             ],
         })
     ]

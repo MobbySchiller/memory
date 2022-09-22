@@ -40,6 +40,14 @@ class Timer {
         }
     }
 
+    resetTimer() {
+        clearInterval(this.interval);
+        this.minutes = 0;
+        this.seconds = 0;
+        this.displayMinutes(this.minutes, this.minutesDisplay);
+        this.displaySeconds(this.seconds, this.secondsDisplay);
+    }
+
 }
 
 export const timer = new Timer();

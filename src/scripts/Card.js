@@ -1,6 +1,6 @@
 import { game } from './Game.js';
 
-const FLAG_API = 'https://countryflagsapi.com/svg/'
+const FLAG_URL = 'https://countryflagsapi.com/svg/'
 
 export class Card {
     constructor(name) {
@@ -20,7 +20,7 @@ export class Card {
 
         const flag = document.createElement('div');
         flag.className = 'card__flag';
-        flag.style.backgroundImage = `url('${FLAG_API}${countryName}')`;
+        flag.style.backgroundImage = `url('${FLAG_URL}${countryName}')`;
         const name = document.createElement('div');
         name.className = 'card__name';
         name.textContent = this.capitalizeFirstLetter(countryName);
@@ -39,5 +39,11 @@ export class Card {
 
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    playSound() {
+        const audio = new Audio();
+        audio.src = '../../public/audio/card-flip-sound.mp3';
+        audio.play();
     }
 }

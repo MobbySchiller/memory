@@ -1,6 +1,5 @@
-import { board } from './Board.js';
 import { game } from './Game.js';
-import { timer } from './Timer.js';
+import { board } from './Board.js';
 
 const START_BUTTON_ID = 'js-start-button';
 const LEVEL_BUTTONS_CLASS = '.menu__level-button';
@@ -11,24 +10,23 @@ class Menu {
     constructor() {
         this.startButton = document.getElementById(START_BUTTON_ID);
         this.levelButtons = [...document.querySelectorAll(LEVEL_BUTTONS_CLASS)];
-        this.gameLayerFront = document.getElementById('js-game-layer-front');
-        this.gameLayerBack = document.getElementById('js-game-layer-back');
+        this.gameLayerFront = document.getElementById(GAME_LAYER_FRONT_ID);
+        this.gameLayerBack = document.getElementById(GAME_LAYER_BACK_ID);
     }
 
     init() {
-        this.startButton.addEventListener('click', () => this.startGame(this.pickedLevel));
+        this.startButton.addEventListener('click', () => this.playGame(this.pickedLevel));
         this.levelButtons.forEach(button => button.addEventListener('click', (e) => this.pickLevel(e)));
     }
 
-    startGame(level) {
+    playGame(level) {
         const levelProperties = game.levels[level];
-        console.log
         if (level) {
+            this.startButton.disabled = true;
             this.rotateGameLayer();
-            game.drawCountries(levelProperties.pairs);
+            game.startGame(levelProperties.pairs);
             board.generateBoard(levelProperties, game.drawedCountries);
         }
-        timer.run();
     }
 
     rotateGameLayer() {
@@ -45,6 +43,13 @@ class Menu {
 
     resetMark() {
         this.levelButtons.forEach(button => button.classList.remove('menu__level-button--clicked'));
+    }
+
+    openMenu() {
+        this.gameLayerFront.classList.remove('rotate');
+        this.gameLayerBack.classList.remove('rotate');
+        this.startButton.disabled = false;
+        this.resetMark();
     }
 
 }

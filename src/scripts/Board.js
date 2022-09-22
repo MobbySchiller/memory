@@ -9,6 +9,7 @@ class Board {
     }
 
     generateBoard(level, countries) {
+        this.pullCardsFromBoard(this.cards, this.board);
         this.board.style.gridTemplateRows = `repeat(${level.rows}, 1fr)`;
         this.board.style.gridTemplateColumns = `repeat(${level.cols}, 1fr)`;
         this.generateCards(countries);
@@ -36,6 +37,13 @@ class Board {
 
     pushCardsToBoard(cards, board) {
         cards.forEach(card => board.appendChild(card.nodeElement));
+    }
+
+    pullCardsFromBoard(cards, board) {
+        if (cards.length !== 0) {
+            cards.forEach(card => board.removeChild(card.nodeElement));
+            cards.length = 0;
+        }
     }
 }
 

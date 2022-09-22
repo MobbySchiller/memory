@@ -1,15 +1,15 @@
 $background-color: #965A00;
-$dark-font-color: #1a1a1a;
-$light-font-color: #fefefe;
+$dark-color: #1a1a1a;
+$light-color: #fefefe;
 
 $gradient: 90deg, #0F2027, #203A43, #2C5364;
 
 $button-background-color: #fff;
-$button-color: #000;
-$button-background-color-hover: #000;
+$button-color: $dark-color;
+$button-background-color-hover: $dark-color;
 $button-color-hover: #fff;
 
-$card-back-color: #F7EB6A;
+$card-back-color: #FFEB6A;
 $card-front-color: #333;
 
 $margin-spacing: 10px;

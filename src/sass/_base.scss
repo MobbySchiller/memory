@@ -34,8 +34,9 @@
 }
 
 button {
+    margin: 4px;
     padding: 12px 24px;
-    border: 2px solid black;
+    border: 2px solid $dark-color;
     border-radius: $border-radius;
     background-color: $button-background-color;
     color: $button-color;

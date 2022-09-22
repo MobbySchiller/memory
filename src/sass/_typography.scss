@@ -7,6 +7,7 @@ body {
 }
 
 h1 {
+    color: $dark-color;
     font-size: 4rem;
     font-weight: 700;
     margin: $margin-spacing;
@@ -14,6 +15,7 @@ h1 {
 }
 
 h2 {
+    color: $dark-color;
     font-size: 2.4rem;
     font-weight: 700;
     margin: $margin-spacing;
